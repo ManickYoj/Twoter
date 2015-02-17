@@ -2,20 +2,22 @@ var Twote = require('../model/twote');
 var User = require('../model/user');
 
 module.exports = function(req, res) {
-	Twote.find().sort({postTime: -1}).populate('user', 'name').exec(function(err, twotes) {
-		if (err) return res.sendStatus(500);
+	if (req.isAuthenticated())
+		Twote.find().sort({postTime: -1}).populate('user', 'name').exec(function(err, twotes) {
+			if (err) return res.sendStatus(500);
 
-		User.find({}, function(err, users) {
-		if (err) return res.sendStatus(500);
-
-			res.render('index', {
-				name: req.session.name,
-				twote: twotes,
-				incl_js: ['twote'],
-				user: users
+			User.find({}, function(err, users) {
+			if (err) return res.sendStatus(500);
+				console.log(req.user)
+				res.render('index', {
+					name: req.user.displayName,
+					twote: twotes,
+					incl_js: ['twote'],
+					user: users
+				});
 			});
 		});
-	});
+	else return res.render('index');
 }
 
 // Create a new Twote
@@ -57,10 +59,10 @@ module.exports.login = function(req, res) {
 						});
 					});
 				else res.json({
-							layout: false,
-							bannerData: twoteForm,
-							logoutData: logoutData
-						});
+					layout: false,
+					bannerData: twoteForm,
+					logoutData: logoutData
+				});
 			});
 		});
 	});
