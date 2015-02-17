@@ -8,7 +8,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 // Authentication/Authorization
-var devconf = require('./oauth.js')
 var session = require('express-session');
 var passport = require('passport')
 var FacebookStrategy = require('passport-facebook').Strategy;
@@ -33,9 +32,9 @@ app.set('view engine', 'hbs');
 
 // OAuth config
 passport.use(new FacebookStrategy({
-		clientID: process.env.FB_CLIENTID || devconf.facebook.clientID,
-		clientSecret: process.env.FB_CLIENTSECRET || devconf.facebook.clientSecret,
-		callbackURL: process.env.FB_CALLBACKURL || devconf.facebook.callbackURL
+		clientID: process.env.FB_CLIENTID,
+		clientSecret: process.env.FB_CLIENTSECRET,
+		callbackURL: process.env.FB_CALLBACKURL
 	},
 	function(accessToken, refreshToken, profile, done) {
  		process.nextTick(function () {
