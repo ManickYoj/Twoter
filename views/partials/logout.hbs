@@ -1,0 +1,23 @@
+<button id="logout-button" class="text-button"><span class="glyphicon glyphicon-remove normal-font"></span></button>
+{{name}}
+
+<!-- Logout Script -->
+<script>
+$ ( function () {
+	var logoutSuccess = function (data, status) {
+		$('#banner-container').html(data);
+		$loggedStatus.html('');
+	}
+
+	var logoutError = function (data, status) {
+		alert('Logout error. Please try again.');
+	}
+
+	$('#logout-button').click(function(e) {
+		e.preventDefault();
+		$.post('logout')
+		.done(logoutSuccess)
+		.error(logoutError);
+	});
+});
+</script>

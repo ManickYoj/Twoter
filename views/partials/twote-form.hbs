@@ -1,0 +1,56 @@
+<form id="twote-form">
+	<span class="twote-field-body side-borders">
+		<label for="twote-field">Twotest Thou...</label>			
+		<span class="center twote-field-container">
+			<span class="left quote">&ldquo;</span>
+			<span class="abs-right quote bottom">&rdquo;</span>
+			<span class="center">
+				<textarea id="twote-field" placeholder="The Twote is mightier than the Sword." max-length="140"></textarea>
+			</span>
+		</span>
+
+	</span>
+
+	<!--Submission/Discard Tools-->
+	<span class="twote-tools bottom right">
+		<button id="discard" class="icon-button"><span class="glyphicon glyphicon-remove"></span></button>
+		<button id="create" type="submit" class="icon-button"><span class="glyphicon glyphicon-ok"></span></button>
+	</span>
+</form>
+
+<!-- Twote Form -->
+<script>
+$( function() {
+	var $twoteField = $("#twote-field");
+	var $twotePage = $("#twote-page");
+
+	var twoteSuccess = function(data, status) {
+		console.log(data);
+		$twotePage.prepend(data);
+		$twoteField.val('');
+
+		$twoteBanner.toggleClass('solid');
+		$twoteGroup.toggleClass('inverted');
+		$twoteBanner.hide();
+	}
+
+	var twoteFailure = function(data, status) {
+		alert("Error in posting tweet. Please try again. Note that only alphanumeric symbols and common punctuation marks are allowed.");
+	}
+
+	$('#discard').click( function(e) {
+		e.preventDefault();
+		$twoteField.val("")
+	});
+
+	$('#twote-form').submit( function(e) {
+		e.preventDefault();
+
+		$.post('twote', {
+			text: $(this).find('#twote-field').val()
+		})
+		.done(twoteSuccess)
+		.error(twoteFailure);
+	});
+});
+</script>

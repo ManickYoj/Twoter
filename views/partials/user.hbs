@@ -1,0 +1,25 @@
+<div user='{{name}}' class="user-block user">{{name}}</div>
+
+<script>
+$( function () {
+	$('.user-block').click( function(e) {
+		deselectAllUsers();
+		selectUser($(this));
+	});
+
+	$('#user-deselect').click( function (e) {
+		deselectAllUsers();
+	});
+
+	function selectUser(element) {
+		element.addClass('dark-bg');
+		var user = element.attr('user');
+		$("div[poster='" + user + "']").addClass('highlighted');
+	}
+
+	function deselectAllUsers() {
+		$('.user-block').removeClass('dark-bg');
+		$(".twote-box").removeClass('highlighted');
+	}
+});
+</script>

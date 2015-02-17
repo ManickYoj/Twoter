@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="/stylesheets/sidebar.css" />
+
+<div id="twote-banner" class="raised">
+	<div id="banner-container">
+		{{#if name}}
+			{{> twote-form}}
+		{{else}}
+			{{> login-form}}
+		{{/if}}
+	</div>
+</div>
+
+<aside class="raised-underlay"></aside>
+<aside id="sidebar">
+	<div id="logged-status" align="center">
+		{{#if name}}
+			{{> logout}}
+		{{/if}}
+	</div>
+
+	<div id="twote-group">
+		<h1 class="box center" align="center"><strong>T<strong></h1>
+		<div class="sidebar-option center"><strong>
+			<span class="glyphicon glyphicon-chevron-right"></span>
+				<strong>
+					Pen a Twote
+				</strong>
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</div>
+	</div>
+	<div id="user-headers" class="bottom-border">
+		<label  id="user-label" for="user-container left">Users</label>
+		<button id="user-deselect" class="user text-button">Deselect all</button>
+	</div>
+	<div id="user-container">
+		{{#each user}}
+			{{> user}}
+		{{/each}}
+	</div>
+</aside>
+
+<script type="text/javascript" src="/javascripts/sidebar.js"></script>

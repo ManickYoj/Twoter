@@ -1,0 +1,32 @@
+<div id="input-container" align="center">
+	<form id="login-form">
+		<label for="name-field">Username</label>
+		<input id="name-field" class="bottom-border large-font" placeholder="Ozymandias"></input>
+		<button id="login-button" type="submit" class="text-button">login</button>
+	</form>
+</div>
+
+<!-- Login Script -->
+<script>
+	var loginSuccess = function (data, status) {
+		$('#banner-container').html(data.bannerData);
+		$('#logged-status').html(data.logoutData);
+		if ( data.userData ){
+			$('#user-container').prepend(data.userData);
+		}
+	}
+
+	var loginFailure = function (data, status) {
+		alert('Login error. Please try again.');
+	}
+
+	$('#login-form').submit(function(e) {
+		e.preventDefault();
+
+		$.post('login', {
+			name: $(this).find('#name-field').val()
+		})
+		.done(loginSuccess)
+		.error(loginFailure);
+	});
+</script>

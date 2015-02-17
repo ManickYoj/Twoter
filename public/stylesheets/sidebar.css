@@ -1,0 +1,240 @@
+@import url(http://fonts.googleapis.com/css?family=Tangerine);
+
+/* ----- SIDEBAR CSS ----- */
+aside {
+	width: inherit;
+	min-width: 220px;
+	max-width: 220px;
+
+	position:fixed;
+	right: 60px;
+	top:0;
+	bottom: 0;
+
+	background: #FFF;
+}
+
+label {
+	padding-left: 0 !important;
+	font-size: 1.3rem;
+	padding: 1.5rem 2rem 0;
+	text-transform: uppercase;
+	color: solid rgba(0, 0, 0, 0.6);
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+input {
+	background: none !important;
+	outline: none;
+	border: none;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+button {
+	background: none !important;
+	
+	font-family: 'Source Sans Pro', sans-serif;
+	display: inline;
+	font-size: 1.4rem;
+	box-sizing: border-box;
+	
+	outline: none;
+	border-color: rgba(0, 0, 0, 0.4) !important; 
+	color: rgba(0, 0, 0, 0.4) !important;
+}
+
+button:hover {
+	border-color: rgba(0, 0, 0, 0.6) !important; 
+	color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.text-button {
+	border: none;
+	font-size: 1.3rem;
+	text-transform: uppercase;
+	font-weight: 400;
+}
+
+#logged-status {
+	text-transform: uppercase;
+	font-size: .75em;
+	color: rgba(0, 0, 0, 0.4);
+	margin: 1rem;
+	height: 2rem;
+}
+
+.box {
+	width: 4.5rem;
+	border: 2px solid;
+	font-family: serif;
+	z-index: inherit;
+	margin-bottom: 3rem;
+}
+
+.left {
+	float: left;
+	margin-right: 10px;
+}
+
+#sidebar {
+	z-index: 10;
+}
+
+.sidebar-option {
+	text-align: center;
+	font-size: 1.3rem;
+	font-weight: 700;
+	letter-spacing: 1.2px;
+	font-family: 'Source Sans Pro', sans-serif;
+	text-transform: uppercase;
+	z-index: inherit;
+}
+
+#twote-group {
+	width: 100%;
+	padding: 4.5rem 0;
+	height: 200px;
+	border-color: rgba(0, 0, 0, 0.7);
+	z-index: 10;
+
+}
+
+#twote-banner {
+	display: none;
+	position: fixed;
+
+	width: 100%;
+	height: 200px;
+	z-index: 3;
+
+	margin-top: 4rem;
+	top: 0;
+	
+	background-color: white;
+	padding: 25px;
+}
+
+#twote-group:hover {
+	border-color: white;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 3;
+}
+
+.inverted {
+	border-color: white !important;
+	color: white !important;
+	background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+#banner-container {
+	margin: 0 auto;
+	height: 150px;
+	width: 762px;
+	overflow: hidden;
+	position: relative;
+}
+
+.twote-tools {
+	display: block-inline;
+	width: 10%;
+	margin-right: 0;
+	padding-bottom: 3px;
+}
+
+.icon-button {
+	background: none !important;
+	
+	font-family: 'Source Sans Pro', sans-serif !important;
+	display: block;
+
+	font-size: 1rem;
+	height: 40px;
+	width: 40px;
+
+	box-sizing: border-box;
+
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-bottom: 2px;
+	
+	outline: none;
+
+	border-radius: 10px;
+	border: 1px solid rgba(0, 0, 0, 0.4); 
+}
+
+
+/* ----- TWOTE-FORM CSS ----- */
+
+.twote-field-container {
+	font-family: 'Tangerine', cursive;
+	font-size: 2.5em;
+	position: relative; 
+}
+
+#twote-field {
+	resize: none;
+	outline: none;
+	border: 0px;
+	float: left;
+	display: block-inline;
+	width: 90%;
+	overflow: hidden;
+	letter-spacing: .1em;
+}
+
+.quote {
+	color: rgba(0, 0, 0, 0.7);
+	font-size: 2em;
+	line-height: .5em;
+}
+
+.twote-field-body {
+	display: block-inline;
+	width:90%;
+	float:left;
+}
+
+
+/* ----- USER CSS ----- */
+#user-container {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+
+#user-headers {
+	margin: 25px 25px 0 25px;
+	padding: 0;
+}
+
+#user-label {
+	padding: 0;
+}
+
+#user-deselect {
+	float: right;
+}
+
+.user-block {
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.6);
+	margin: 5px 0; 
+	padding: 0 25px;
+}
+
+.user-block:hover {
+	background-color: rgba(0, 0, 0, 0.4);
+	color: #FFF;
+}
+
+.dark-bg {
+	background-color: rgba(0, 0, 0, 0.6);
+	color: #FFF;
+}
+
+.highlighted {
+	border: 3px solid rgba(0, 0, 0, .6);
+}
