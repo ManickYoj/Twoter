@@ -51,9 +51,15 @@ button:hover {
 
 .text-button {
 	border: none;
+	color: rgba(0, 0, 0, 0.4) !important;
 	font-size: 1.3rem;
 	text-transform: uppercase;
 	font-weight: 400;
+	text-decoration: none !important;
+}
+
+.text-button:hover {
+	color: rgba(0, 0, 0, 0.6) !important;
 }
 
 #logged-status {

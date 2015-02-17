@@ -66,8 +66,8 @@ app.use(passport.session());
 // Routing Table
 var home = require('./routes/home');
 app.get('/', home);
+app.get('/logout', home.logout);
 app.post('/login', home.login);
-app.post('/logout', home.logout);
 app.post('/twote', home.post);
 app.post('/delete', home.delete);
 
@@ -79,13 +79,10 @@ app.get('/auth/facebook',
 app.get('/auth/facebook/callback',
 	passport.authenticate('facebook', { failureRedirect: '/' }),
 	function(req, res) {
- 		res.redirect('/');
+		home.login(req, res);
 });
 
-app.get('/logout', function(req, res){
-	req.logout();
-	res.redirect('/');
-});
+
 
 // Listen
 app.listen(PORT);
